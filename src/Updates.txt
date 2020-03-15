@@ -1,0 +1,7 @@
+Tips
+- Use a square image if you can (100 x 100 is ideal); otherwise, your image will look distorted.
+- Know how to play the game. Once the game starts, you will have the ability to press the "How to Play" button.
+
+----------------
+Version 1.0
+- Added Multiplayer Teams.
