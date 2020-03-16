@@ -354,25 +354,27 @@ public class Server extends Application {
                             break;
                             //Quit
                         case "Q":
-                            turnQueue.remove(data[0]);
-                            List<Card> cards1 = ListExtension.stringToCardList(data[3]);
-                            broadcast(UserInterfaceHelper.clearCards(data[0]));
-                            Collections.shuffle(cards1);
-                            broadcast(data[0] + "\t\tRD");
-                            if (getRedPlayers().size() == 0) {
-                                broadcast("[Game]\tCongratulations! Blue has won!\tM");
-                                broadcast("\t\tE");
-                            } else if (getBluePlayers().size() == 0) {
-                                broadcast("[Game]\tCongratulations! Red has won!\tM");
-                                broadcast("\t\tE");
-                            } else {
-                                deadCards.addAll(cards1);
-                                broadcast(ListExtension.stringListToString(turnQueue) + "\t" + deadCards.size() / turnQueue.size()
-                                        + "\tDCD");
-                                broadcast("[Game]\t" + turnQueue.element() + " can now put down some cards.\tM");
+                            if (data.length > 3) {
+                                turnQueue.remove(data[0]);
+                                List<Card> cards1 = ListExtension.stringToCardList(data[3]);
+                                broadcast(UserInterfaceHelper.clearCards(data[0]));
+                                Collections.shuffle(cards1);
+                                broadcast(data[0] + "\t\tRD");
+                                if (getRedPlayers().size() == 0) {
+                                    broadcast("[Game]\tCongratulations! Blue has won!\tM");
+                                    broadcast("\t\tE");
+                                } else if (getBluePlayers().size() == 0) {
+                                    broadcast("[Game]\tCongratulations! Red has won!\tM");
+                                    broadcast("\t\tE");
+                                } else {
+                                    deadCards.addAll(cards1);
+                                    broadcast(ListExtension.stringListToString(turnQueue) + "\t" + deadCards.size() / turnQueue.size()
+                                            + "\tDCD");
+                                    broadcast("[Game]\t" + turnQueue.element() + " can now put down some cards.\tM");
+                                }
+                                broadcast(data[0] + "\t0\tMH\t" + turnQueue.element());
+                                broadcast("[Game]\t" + data[0] + getQuitMessage() + "\tM");
                             }
-                            broadcast(data[0] + "\t0\tMH\t" + turnQueue.element());
-                            broadcast("[Game]\t" + data[0] + getQuitMessage() + "\tM");
                             break;
                         //Draw Card
                         case "DC":
