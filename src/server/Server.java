@@ -441,7 +441,6 @@ public class Server extends Application {
                                         userList.remove(startPlayer);
                                         userList.add(0, startPlayer);
                                         turnQueue.addAll(userList);
-                                        System.out.println(turnQueue);
                                         broadcast(startPlayer + "\t" + ListExtension.stringListToString(userList) + "\tSP");
                                     }
                                 }
