@@ -3,8 +3,12 @@ Tips
 - Know how to play the game. Once the game starts, you will have the ability to press the "How to Play" button.
 
 ----------------
+Version 1.1
+- More Bugs Fixed.
+- Added Executable Files
+
 Version 1.0.1
-- Bug Fixes
+- Bug Fixes.
 
 Version 1.0
 - Added Multiplayer Teams.

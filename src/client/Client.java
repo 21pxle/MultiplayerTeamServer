@@ -113,7 +113,7 @@ public class Client extends Application {
             }
         });
 
-        Task<Void> task = new Task<>() {
+        Task<Void> task = new Task<Void>() {
             @Override
             public Void call() {
                 Platform.runLater(() -> new ClientMessageConsumer(messageQueue, textArea).start());
@@ -339,7 +339,7 @@ public class Client extends Application {
             ChoiceBox<Team> teams = new ChoiceBox<>();
             teams.setItems(FXCollections.observableArrayList(Team.RED, Team.BLUE, Team.NONE));
 
-            teams.setConverter(new StringConverter<>() {
+            teams.setConverter(new StringConverter<Team>() {
                 @Override
                 public String toString(Team team) {
                     return team.getColorString();
